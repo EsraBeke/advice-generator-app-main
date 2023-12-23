@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENTERERP</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+   
+    <nav>
+     
+    </nav>
+  </header>
+<style>
+  
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: hsl(218, 23%, 16%);
+  color: hsl(217, 19%, 38%);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+}
+
+header {
+  background-color: hsl(218, 23%, 16%);
+  color: hsl(193, 38%, 86%);
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+ block-size: auto;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.advice-section {
+  background-color: hsl(217, 19%, 24%);
+  border-radius: 15px;
+  padding: 1rem;
+
+
+}
+
+.advice-container {
+  text-align: center;
+  max-width: 460px; 
+  margin: 0 auto; 
+  
+}
+
+.advice {
+  font-size: 28px;
+
+  color: hsla(0, 0%, 100%, 0.9);
+ 
+  margin: 0 20px;
+  margin-bottom: 3rem;
+  
+}
+
+.generate-button {
+  background-color: hsl(150, 100%, 66%);
+  color: hsl(218, 23%, 16%);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: auto;
+  display: block;
+  
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 50%; 
+  width: 4rem; 
+  height: 4rem; 
+
+  position: relative; 
+  top: 50px; 
+  
+  box-shadow: 0 0 15px rgba(150, 255, 150, 0); 
+}
+
+.generate-button:hover {
+ 
+  box-shadow: 0 0 15px rgba(150, 255, 150, 0.8);
+}
+h3{
+  color: hsl(150, 100%, 66%); 
+  letter-spacing: 4px; 
+  font-size: 12px;
+  margin-bottom: 2rem;
+}
+ /* Mobil Ekranlar İçin responsive */
+ @media (max-width: 600px) {
+    .advice-container {
+      max-width: 100%; 
+      padding: 0 20px; 
+      
+    }
+
+    .advice {
+      font-size: 24px; 
+      margin-bottom: 2rem;
+    }
+
+    .generate-button {
+      top: 50px; 
+    }
+  }
+</style>
+  <main>
+    <section class="advice-section">
+      <div class="advice-container">
+        <h3 id="adviceNumber">ADVICE #1</h3>
+        <p class="advice" id="adviceText">"Şayet bir gün çaresiz kalırsanız, bir kurtarıcı beklemeyin. Kurtarıcı kendiniz olun.".</p>
+        <svg width="444" height="16" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="#4F5D74" d="M0 8h196v1H0zM248 8h196v1H248z"/><g transform="translate(212)" fill="#CEE3E9"><rect width="6" height="16" rx="3"/><rect x="14" width="6" height="16" rx="3"/></g></g></svg>
+   
+      </div>
+      <button class="generate-button" onclick="changeAdvice()">
+        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 0H4a4.005 4.005 0 0 0-4 4v16a4.005 4.005 0 0 0 4 4h16a4.005 4.005 0 0 0 4-4V4a4.005 4.005 0 0 0-4-4ZM7.5 18a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm4.5 4.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm0-9a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z" fill="hsl(218, 23%, 16%)"/>
+          </svg></button>
+    </section>
+  </main>
+
+  <script>
+    var adviceList = [
+      "Başarmak için kendi iradenizin her şeyden daha çok önemli olduğunu asla unutmayın.",
+      "Bir işe kalkışmadan önce, kendinden mucize beklemelisin.",
+      "Kendi omuzuna tırman, başka nasıl yükselebilirsin ki!",
+      "Peşinden gidecek cesaretiniz varsa, bütün rüyalar gerçek olabilir. ",
+    
+    ];
+    var adviceIndex = 1;  
+    var lastAdviceIndex = -1;  
+
+    function getRandomAdvice() {
+     var randomIndex;
+  
+    do {
+     randomIndex = Math.floor(Math.random() * adviceList.length);
+    } while (randomIndex === lastAdviceIndex);
+
+    lastAdviceIndex = randomIndex;
+    return adviceList[randomIndex];
+   }
+
+   function changeAdvice() {
+    var newAdviceText = getRandomAdvice();
+    adviceIndex++;
+    document.getElementById("adviceNumber").innerText = "ADVICE #" + adviceIndex;
+    document.getElementById("adviceText").innerText = newAdviceText;
+   }
+  </script>
+
+</body>
+</html>
